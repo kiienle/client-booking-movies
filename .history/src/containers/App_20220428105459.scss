@@ -1,0 +1,10 @@
+.main-container {
+    display: flex;
+    justify-content: space-between;
+
+    .content-container {
+        width: 952px;
+        display: block;
+        border: 1px solid red;
+    }
+}

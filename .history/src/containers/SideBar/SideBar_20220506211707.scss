@@ -1,0 +1,26 @@
+@import "../../styles/common.scss";
+
+.SideBar-container {
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    box-shadow: 0 2px 8px RGB(0 0 0 / 15%);
+    position: relative;
+
+    .btn-logout {
+        display: block;
+        color: red;
+        border: 1px solid red;
+        line-height: 40px;
+        height: 40px;
+        padding: 0 10px;
+        &:hover {
+            background-color: darken($colormain, 5);
+        }
+        i {
+            font-size: $base-size + 1px;
+        }
+    }
+}

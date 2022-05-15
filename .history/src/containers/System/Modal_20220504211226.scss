@@ -1,0 +1,16 @@
+:root {
+    --first-color: #1a73e8;
+    --input-color: #80868b;
+    --border-color: #DADCE0;
+}
+
+
+.modal-content {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+    box-sizing: border-box;
+
+    .form-title {
+        font-weight: 400;
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "login": {
+        "login": "Đăng nhập",
+        "username": "Tên đăng nhập",
+        "password": "Mật khẩu",
+        "userpass-wrong": "Sai tên đăng nhập hoặc mật khẩu!"
+    },
+    "menu": {
+        "system": {
+            "dashboard": "Tổng quan",
+            "user-manage": "Quản lý người dùng"
+        },
+        "movie": {
+            "movie-manage": "Quản lý phim",
+            "ticket-manage": "Quản lý vé",
+            "showtime-manage": "quản lý suất chiếu"
+        },
+        "cinema": {
+            "cineplex": "Rạp",
+            "cinema": "Cụm rạp"
+        }
+    }
+}

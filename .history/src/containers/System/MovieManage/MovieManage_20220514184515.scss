@@ -1,0 +1,28 @@
+.movie-manage {
+    width: 932px;
+
+    .movie-table {
+        width: 100%;
+        position: relative;
+        padding: 8px 16px;
+        margin-bottom: 100px;
+        background-color: #fff;
+        border: none;
+        border-radius: 10px;
+        -webkit-box-shadow: 0 2px 8px RGB(0 0 0 / 15%);
+        box-shadow: 0 2px 8px RGB(0 0 0 / 15%);
+
+        .gelpCx {
+            overflow-y: visible;
+            max-height: 500px;
+
+            &::-webkit-scrollbar:vertical::-webkit-slider-thumb {
+                display: none;
+            }
+        }
+
+        button {
+            width: 30px;
+        }
+    }
+}

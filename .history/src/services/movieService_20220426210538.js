@@ -1,0 +1,1 @@
+import { movieType } from "../utils";

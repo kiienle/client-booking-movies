@@ -1,0 +1,7 @@
+@import "../styles/common.scss";
+
+.main-container {
+    .content-container {
+        width: calc(100% - 300px);
+    }
+}

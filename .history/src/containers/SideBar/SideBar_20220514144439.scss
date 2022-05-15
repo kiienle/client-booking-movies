@@ -1,0 +1,28 @@
+@import "../../styles/common.scss";
+
+.sidebar-container {
+    max-width: 250px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    // margin: 400px 0 0 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px RGB(0 0 0 / 15%);
+    top: 80px;
+    left: 0;
+
+    .btn-logout {
+        display: block;
+        color: red;
+        border: 1px solid red;
+        line-height: 40px;
+        height: 40px;
+        padding: 0 10px;
+        &:hover {
+            background-color: darken($colormain, 5);
+        }
+        i {
+            font-size: $base-size + 1px;
+        }
+    }
+}

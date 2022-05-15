@@ -1,0 +1,13 @@
+.main-container {
+
+    .body-container {
+        // height: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.5;
+        box-sizing: border-box;
+        background-color: #fafafa;
+    }
+}

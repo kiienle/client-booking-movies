@@ -1,0 +1,9 @@
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    .content-container {
+        display: block;
+        width: 500px;
+        border: 1px solid red;
+    }
+}

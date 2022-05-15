@@ -1,0 +1,54 @@
+@import "../styles/common.scss";
+
+.navigator-menu {
+    height: 100vh;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 6px 15px;
+
+    &.list-unstyled,
+    .list-unstyled {
+        list-style-type: none;
+    }
+    
+    .menu {
+        width: 210px;
+        height: 50px;
+        padding: 5px 10px;
+        line-height: 35px;
+        border-radius: 15px;
+        text-transform: none;
+
+        .menu-icon {
+            display: inline-block;
+            width: 30px;
+            height: 40px;
+
+            i {
+                color: #000;
+                font-size: 18px;
+            }
+        }
+        .menu-link {
+            line-height: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            color: $text-in-light;
+        }
+        
+        &:hover {
+            background-color: #c2d8d9;
+        }
+        .icon-right {
+            border: 1px solid red;
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 10px;
+        }
+    }
+    
+}

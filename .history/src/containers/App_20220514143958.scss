@@ -1,0 +1,12 @@
+.main-container {
+    position: relative;
+    .body-container {
+        display: flex;
+        justify-content: space-around !important;
+        // margin: 20px 0;
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.5;
+        box-sizing: border-box;
+        background-color: #fafafa;
+    }
+}

@@ -1,0 +1,110 @@
+:root {
+    --first-color: #1a73e8;
+    --input-color: #80868b;
+    --border-color: #DADCE0;
+}
+
+
+.modal-user-container {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+    box-sizing: border-box;
+
+    .form-title {
+        font-weight: 400;
+        margin-bottom: 16px;
+
+        button {
+            border: none;
+
+            span {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .modal-user-body {
+        .input-container {
+            position: relative;
+            height: 48px;
+            margin-bottom: 16px;
+
+            .form-input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                font-size: 14px;
+                border: 1px solid #DADCE0;
+                border-radius: 5px;
+                outline: none;
+                padding: 14px;
+                background: none;
+                z-index: 1;
+
+                &:focus + .form-label {
+                    top: -.5rem;
+                    left: .8rem;
+                    color: #1a73e8;
+                    font-size: 14px;
+                    font-weight: 500;
+                    z-index: 10;
+                }
+
+                &:not(:placeholder-shown):not(:focus) + .form-label {
+                    top: -.5rem;
+                    left: .8rem;
+                    z-index: 10;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+
+                &:focus {
+                    border: 1.5px solid #1a73e8;
+                }
+            }
+
+            .form-label {
+                position: absolute;
+                top: 14px;
+                left: 14px;
+                padding: 0 3px;
+                background-color: #fff;
+                color: #80868b;
+                font-size: 1rem;
+                transition: 0.3s;
+            }
+        }
+
+        .select-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            
+
+            .select-box {
+                width: 220px;
+                height: 40px;
+                padding: 6px;
+                border-radius: 5px;
+                border: 1px solid #DADCE0;
+                outline: none;
+            }
+        }
+
+
+    }
+}
+
+
+// .form-input:not(:placeholder-shown).form-input:not(:focus) + .form-label {
+//     top: -.5rem;
+//     left: .8rem;
+//     z-index: 10;
+//     font-size: var(--small-font-size);
+//     font-weight: 500;
+// }
+
+
+

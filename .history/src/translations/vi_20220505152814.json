@@ -1,0 +1,17 @@
+{
+    "login": {
+        "login": "Đăng nhập",
+        "username": "Tên đăng nhập",
+        "password": "Mật khẩu",
+        "userpass-wrong": "Sai tên đăng nhập hoặc mật khẩu!"
+    },
+    "menu": {
+        "system": {
+            "dashboard": "Trang chủ",
+            "user-manage": "Quản lý người dùng"
+        },
+        "movie": {
+            "movie-manage": "Quản lý phim"
+        }
+    }
+}

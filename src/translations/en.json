@@ -1,0 +1,14 @@
+{
+    "login": {
+        "login": "Login",
+        "username": "Username",
+        "password": "Password",
+        "userpass-wrong": "Invalid username or password!"
+    },
+    "menu": {
+        "system": {
+            "user-manage": "User manage",
+            "product-manage": "Package manage"
+        }
+    }
+}
