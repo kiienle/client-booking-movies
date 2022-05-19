@@ -1,0 +1,23 @@
+{
+    "login": {
+        "login": "Login",
+        "username": "Username",
+        "password": "Password",
+        "userpass-wrong": "Invalid username or password!"
+    },
+    "menu": {
+        "system": {
+            "dashboard": "Dashboard",
+            "user-manage": "Manage Users"
+        },
+        "movie": {
+            "movie-manage": "Manage Movies",
+            "ticket-manage": "Manage Tickets",
+            "showtime-manage": "Manage Showtimes"
+        },
+        "cinema": {
+            "cineplex": "Cineplex",
+            "cinema": "Cinema"
+        }
+    }
+}
