@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
-import { Button, Image } from "reactstrap";
 import { toast } from "react-toastify";
 import moment from "moment";
 import * as actions from "../../../store/actions";
@@ -60,7 +59,7 @@ const columns = [
     },
     {
         name: "State",
-        selector: (row) => row.state,
+        selector: (row) => row.stateData.valueVi,
         width: "130px",
     },
     {
@@ -168,6 +167,7 @@ class MovieManage extends Component {
                 this.setState({
                     isOpenEditMode: !this.state.isOpenEditMode,
                 });
+                toast.success("Update a new movie succeed");
             }
         } catch (e) {
             console.log(e);

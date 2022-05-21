@@ -13,10 +13,11 @@ import { path } from "../utils";
 
 import Home from "../routes/Home";
 import Login from "../routes/Login";
-import AdminHeader from "./Header/AdminHeader";
 import System from "../routes/System";
+import HomePage from "./HomePage/HomePage";
 import CustomScrollbars from "../components/CustomScrollbars";
 
+import "swiper/swiper.min.css";
 import "./App.scss";
 
 class App extends Component {
@@ -43,7 +44,6 @@ class App extends Component {
             <Fragment>
                 <Router history={history}>
                     <div className="main-container">
-                        {this.props.isLoggedIn && <AdminHeader />}
                         <div className="content-container">
                             <CustomScrollbars
                                 style={{ height: "100vh", width: "100%" }}
@@ -63,6 +63,12 @@ class App extends Component {
                                     <Route
                                         path={path.SYSTEM}
                                         component={userIsAuthenticated(System)}
+                                    />
+                                    <Route
+                                        path={path.HOMEPAGE}
+                                        component={userIsAuthenticated(
+                                            HomePage
+                                        )}
                                     />
                                 </Switch>
                             </CustomScrollbars>

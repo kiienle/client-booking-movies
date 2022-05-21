@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 
-import "./Navigator.scss";
+import "./SystemNavigator.scss";
 
 class Menu extends Component {
     constructor(props) {

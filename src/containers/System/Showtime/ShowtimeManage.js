@@ -7,6 +7,7 @@ import DataTable from "react-data-table-component";
 import showtimeService from "../../../services/showtimeService";
 import ModalShowtime from "../Modal/ModalShowtime.js";
 import ModalEditShowtime from "../Modal/ModalEditShowtime";
+import { toast } from "react-toastify";
 import "./ShowtimeManage.scss";
 
 const columns = [
@@ -18,7 +19,7 @@ const columns = [
     {
         name: "Movie",
         selector: (row) => row.Movie.title,
-        width: "256px",
+        width: "310px",
         sortable: true,
     },
     {
@@ -29,7 +30,7 @@ const columns = [
     {
         name: "Cinema",
         selector: (row) => row.Cinema.name,
-        // width: "256px",
+        width: "100px",
     },
     {
         name: "Date",
@@ -38,9 +39,9 @@ const columns = [
         sortable: true,
     },
     {
-        name: "Time",
+        name: "Time Start",
         selector: (row) => row.timeData.valueVi,
-        width: "120px",
+        width: "100px",
     },
     {
         name: "Price",
@@ -101,6 +102,7 @@ class ShowtimeManage extends Component {
                 this.setState({
                     isOpenModalShowtime: !this.state.isOpenModalShowtime,
                 });
+                toast.success("Create a new showtime succeed");
             }
         } catch (e) {
             console.log(e);
@@ -131,6 +133,7 @@ class ShowtimeManage extends Component {
                 this.setState({
                     isOpenEditMode: !this.state.isOpenEditMode,
                 });
+                toast.success("Update a new showtime succeed");
             } else {
                 alert(res.errMessage);
             }
@@ -140,7 +143,6 @@ class ShowtimeManage extends Component {
     };
 
     handleOnRowClick = (data) => {
-        console.log({ ...data });
         this.setState({
             isOpenEditMode: true,
             ShowtimeEditData: { ...data },
@@ -164,7 +166,7 @@ class ShowtimeManage extends Component {
                 {this.state.isOpenEditMode && (
                     <ModalEditShowtime
                         isOpen={this.state.isOpenEditMode}
-                        hideModalEidt={() =>
+                        hideModalEdit={() =>
                             this.setState({
                                 isOpenEditMode: !this.state.isOpenEditMode,
                             })

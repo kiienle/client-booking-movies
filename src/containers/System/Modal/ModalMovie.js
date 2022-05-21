@@ -1,10 +1,10 @@
-import { times } from "lodash";
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { CommonUtils } from "../../../utils";
+import { allCodeService } from "../../../services";
+import { LANGUAGES } from "../../../utils";
 import DatePicker from "../../../components/Input/DatePicker";
-import moment from "moment";
 import "./Modal.scss";
 
 class ModalMovie extends Component {
@@ -27,14 +27,21 @@ class ModalMovie extends Component {
             backgroundName: "",
             previewPosterUrl: "",
             previewBackgroundUrl: "",
-            currentDate: "",
+            movieState: "",
         };
     }
     componentDidMount() {
-        this.setState({
-            currentDate: new Date().toLocaleDateString(),
-        });
+        this.hadleGetStateAllcode();
     }
+
+    hadleGetStateAllcode = async () => {
+        let response = await allCodeService.getAllCode("STATE");
+        if (response.errCode === 0 && response.data.length > 0) {
+            this.setState({
+                movieState: response.data,
+            });
+        }
+    };
 
     toggle = () => {
         this.props.handleHideModalMovie();
@@ -127,6 +134,11 @@ class ModalMovie extends Component {
         }
     };
 
+    // componentDidUpdate(prevProps, prevState) {
+    //     let movieStateArr = this.props.
+    //     if(prevProps.)
+    // }
+
     componentWillUnmount() {
         this.setState({
             poster: "",
@@ -146,6 +158,8 @@ class ModalMovie extends Component {
     }
     render() {
         console.log(this.state);
+        const { movieState } = this.state;
+        const { language } = this.props;
         return (
             <Modal
                 isOpen={this.props.isOpen}
@@ -231,9 +245,9 @@ class ModalMovie extends Component {
                                         className="form-input"
                                         onChange={this.handleOnChangeDatePicker}
                                         value={this.state.release_date}
-                                        minDate={moment(new Date())
-                                            .subtract(1, "days")
-                                            .toDate()}
+                                        // minDate={moment(new Date())
+                                        //     .subtract(1, "days")
+                                        //     .toDate()}
                                     />
                                     <label className="form-label">
                                         Release Date
@@ -255,52 +269,81 @@ class ModalMovie extends Component {
                                         Running Time
                                     </label>
                                 </div>
-                                <div class="select-container">
-                                    <select
-                                        className="select-box"
-                                        name="state"
-                                        value={this.state.state}
-                                        onChange={(e) =>
-                                            this.setState({
-                                                state: e.target.value,
-                                            })
-                                        }
+                                <div
+                                    className="d-flex justify-content-between"
+                                    style={{ width: 432 + "px" }}
+                                >
+                                    <div
+                                        className="input-container"
+                                        style={{ width: 200 + "px" }}
                                     >
-                                        <option
-                                            value=""
-                                            selected="selected"
-                                            hidden="hidden"
+                                        <select
+                                            className="form-input"
+                                            style={{ width: 200 + "px" }}
+                                            name="Movie state"
+                                            value={this.state.state}
+                                            onChange={(e) =>
+                                                this.setState({
+                                                    state: e.target.value,
+                                                })
+                                            }
                                         >
-                                            Choose state
-                                        </option>
-                                        <option value="Coming Soon">
-                                            Coming Soon
-                                        </option>
-                                        <option value="Now Showing">
-                                            Now Showing
-                                        </option>
-                                    </select>
-
-                                    <select
-                                        className="select-box"
-                                        name="active"
-                                        value={this.state.active}
-                                        onChange={(e) =>
-                                            this.setState({
-                                                active: e.target.value,
-                                            })
-                                        }
+                                            <option
+                                                value=""
+                                                selected="selected"
+                                                hidden="hidden"
+                                            >
+                                                Choose state
+                                            </option>
+                                            {movieState &&
+                                                movieState.length > 0 &&
+                                                movieState.map((item) => {
+                                                    return (
+                                                        <option
+                                                            key={item.id}
+                                                            value={item.keyMap}
+                                                        >
+                                                            {language ===
+                                                            LANGUAGES.VI
+                                                                ? item.valueVi
+                                                                : item.valueEn}
+                                                        </option>
+                                                    );
+                                                })}
+                                        </select>
+                                        <label className="form-label">
+                                            State
+                                        </label>
+                                    </div>
+                                    <div
+                                        className="input-container"
+                                        style={{ width: 200 + "px" }}
                                     >
-                                        <option
-                                            value=""
-                                            selected="selected"
-                                            hidden="hidden"
+                                        <select
+                                            className="form-input"
+                                            style={{ width: 200 + "px" }}
+                                            name="Movie state"
+                                            value={this.state.active}
+                                            onChange={(e) =>
+                                                this.setState({
+                                                    active: e.target.value,
+                                                })
+                                            }
                                         >
-                                            Choose active
-                                        </option>
-                                        <option value="R1">True</option>
-                                        <option value="R2">False</option>
-                                    </select>
+                                            <option
+                                                value=""
+                                                selected="selected"
+                                                hidden="hidden"
+                                            >
+                                                Choose active
+                                            </option>
+                                            <option value={true}>True</option>
+                                            <option value={false}>False</option>
+                                        </select>
+                                        <label className="form-label">
+                                            Active
+                                        </label>
+                                    </div>
                                 </div>
                                 <div className="input-container movie-description">
                                     <textarea
@@ -400,7 +443,9 @@ class ModalMovie extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        language: state.app.language,
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {

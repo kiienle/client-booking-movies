@@ -7,37 +7,39 @@ const movieService = {
         return axios.get("/api/get-all-movies");
     },
     createNewMovieService: (data) => {
-        console.log(data);
         return axios.post("/api/create-new-movie", data);
     },
     updateMovieById: (data) => {
-        console.log(data);
         return axios.put("/api/update-movie", data);
     },
-    getMoviesList: (type, params) => {
-        const url = "movie/" + movieType[type];
-        return axiosClient.get(url, params);
+    getMoviesByState: (state) => {
+        console.log(state);
+        return axios.get(`/api/get-movie-by-state?state=${state}`);
     },
-    getVideos: (id) => {
-        const url = "movie/" + id + "/videos";
-        return axiosClient.get(url, { params: {} });
-    },
-    search: (params) => {
-        const url = "search/movie";
-        return axiosClient.get(url, params);
-    },
-    detail: (id, params) => {
-        const url = "movie/" + id;
-        return axiosClient.get(url, params);
-    },
-    credits: (id) => {
-        const url = "movie/" + id + "/credits";
-        return axiosClient.get(url, { params: {} });
-    },
-    similar: (id) => {
-        const url = "movie/" + id + "/similar";
-        return axiosClient.get(url, { params: {} });
-    },
+    // getMoviesList: (type, params) => {
+    //     const url = "movie/" + movieType[type];
+    //     return axiosClient.get(url, params);
+    // },
+    // getVideos: (id) => {
+    //     const url = "movie/" + id + "/videos";
+    //     return axiosClient.get(url, { params: {} });
+    // },
+    // search: (params) => {
+    //     const url = "search/movie";
+    //     return axiosClient.get(url, params);
+    // },
+    // detail: (id, params) => {
+    //     const url = "movie/" + id;
+    //     return axiosClient.get(url, params);
+    // },
+    // credits: (id) => {
+    //     const url = "movie/" + id + "/credits";
+    //     return axiosClient.get(url, { params: {} });
+    // },
+    // similar: (id) => {
+    //     const url = "movie/" + id + "/similar";
+    //     return axiosClient.get(url, { params: {} });
+    // },
 };
 
 export default movieService;

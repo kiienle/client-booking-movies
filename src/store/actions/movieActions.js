@@ -24,3 +24,26 @@ export const fetchAllMoviesSuccess = (payload) => ({
 export const fetchAllMoviesFail = () => ({
     type: actionTypes.FECTH_ALL_MOVIE_FAIL,
 });
+
+export const fetchMoviesByStateStart = (state) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await movieService.getMoviesByState(state);
+            if (res && res.errCode == 0) {
+                dispatch(fetchMoviesByStateSuccess(res.data));
+            } else {
+                dispatch(fetchMoviesByStateFail());
+            }
+        } catch (e) {
+            dispatch(fetchMoviesByStateFail());
+            console.log("fetchMoviesByStateFail", e);
+        }
+    };
+};
+export const fetchMoviesByStateSuccess = (payload) => ({
+    type: actionTypes.FECTH_MOVIE_BY_STATE_SUCCESS,
+    payload,
+});
+export const fetchMoviesByStateFail = () => ({
+    type: actionTypes.FECTH_MOVIE_BY_STATE_FAIL,
+});

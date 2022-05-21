@@ -8,6 +8,7 @@ import cinemaService from "../../../services/cinemaService";
 import ModalCinema from "../Modal/ModalCinema.js";
 import ModalEditCinema from "../Modal/ModalEditCinema";
 import "./Cinema.scss";
+import { toast } from "react-toastify";
 
 const columns = [
     {
@@ -23,6 +24,11 @@ const columns = [
     {
         name: "Cineplex",
         selector: (row) => row.Cineplex.name,
+        // width: "120px",
+    },
+    {
+        name: "Type",
+        selector: (row) => row.typeData.valueVi,
         // width: "120px",
     },
     {
@@ -86,6 +92,7 @@ class Cinema extends Component {
                 this.setState({
                     isOpenModalCinema: !this.state.isOpenModalCinema,
                 });
+                toast.success("Create a new cinema succeed");
             }
         } catch (e) {
             console.log(e);
@@ -107,7 +114,6 @@ class Cinema extends Component {
     // };
 
     handleUpdateCinema = async (data) => {
-        console.log(data);
         try {
             let res = await cinemaService.updateCinemaById(data);
             console.log(res);
@@ -116,6 +122,7 @@ class Cinema extends Component {
                 this.setState({
                     isOpenEditMode: !this.state.isOpenEditMode,
                 });
+                toast.success("Update a new cinema succeed");
             } else {
                 alert(res.errMessage);
             }
@@ -134,6 +141,7 @@ class Cinema extends Component {
 
     render() {
         const { arrCinemas } = this.state;
+        console.log(arrCinemas);
         return (
             <div className="cinema-container">
                 {this.state.isOpenModalCinema && (

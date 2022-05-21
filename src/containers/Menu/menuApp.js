@@ -71,30 +71,25 @@ export const adminMenu = [
     },
 ];
 
-export const homeHeader = [
+export const homeMenu = [
     {
         index: 1,
-        name: "menu.home.home",
-        link: "/",
+        name: "menu.home",
+        link: "/home",
     },
     {
         index: 2,
-        name: "menu.home.home",
-        link: "/",
+        name: "menu.movie.movie",
+        link: "/home/movie",
     },
     {
         index: 3,
-        name: "menu.home.home",
-        link: "/",
+        name: "menu.cinema.cineplex",
+        link: "/home/cineplex",
     },
     {
         index: 4,
-        name: "menu.home.home",
-        link: "/",
-    },
-    {
-        index: 5,
-        name: "menu.home.home",
-        link: "/",
+        name: "menu.movie.show-time",
+        link: "/home/show-time",
     },
 ];

@@ -13,11 +13,15 @@
         "movie": {
             "movie-manage": "Manage Movies",
             "ticket-manage": "Manage Tickets",
-            "showtime-manage": "Manage Showtimes"
+            "showtime-manage": "Manage Showtimes",
+            "show-time": "Show time",
+            "movie": "Movie"
         },
         "cinema": {
             "cineplex": "Cineplexes",
             "cinema": "Cinemas"
-        }
+        },
+        "home": "Home",
+        "contact": "Contact"
     }
 }

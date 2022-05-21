@@ -13,11 +13,15 @@
         "movie": {
             "movie-manage": "Quản lý phim",
             "ticket-manage": "Quản lý vé",
-            "showtime-manage": "Quản lý suất chiếu"
+            "showtime-manage": "Quản lý suất chiếu",
+            "show-time": "Lịch chiếu",
+            "movie": "Phim"
         },
         "cinema": {
             "cineplex": "Cụm rạp",
             "cinema": "Rạp"
-        }
+        },
+        "home": "Trang chủ",
+        "contact": "Liên hệ"
     }
 }

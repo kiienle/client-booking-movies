@@ -2,6 +2,7 @@ import actionTypes from "../actions/actionTypes";
 
 const initialState = {
     movieList: [],
+    moviesPopular: [],
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -14,6 +15,16 @@ const movieReducer = (state = initialState, action) => {
             };
         case actionTypes.FECTH_ALL_MOVIE_FAIL:
             copyState.movieList = [];
+            return {
+                ...copyState,
+            };
+        case actionTypes.FECTH_MOVIE_BY_STATE_SUCCESS:
+            copyState.moviesByState = action.payload;
+            return {
+                ...copyState,
+            };
+        case actionTypes.FECTH_MOVIE_BY_STATE_FAIL:
+            copyState.moviesByState = [];
             return {
                 ...copyState,
             };

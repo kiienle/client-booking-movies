@@ -8,6 +8,7 @@ import cineplexService from "../../../services/cineplexService";
 import ModalCineplex from "../Modal/ModalCineplex.js";
 import ModalEditCineplex from "../Modal/ModalEditCineplex";
 import "./Cineplex.scss";
+import { toast } from "react-toastify";
 
 const columns = [
     {
@@ -95,6 +96,7 @@ class Cineplex extends Component {
                 this.setState({
                     isOpenModalCineplex: !this.state.isOpenModalCineplex,
                 });
+                toast.success("Create a new cineplex succeed");
             }
         } catch (e) {
             console.log(e);
@@ -125,6 +127,7 @@ class Cineplex extends Component {
                 this.setState({
                     isOpenEditMode: !this.state.isOpenEditMode,
                 });
+                toast.success("Update a new cineplex succeed");
             } else {
                 alert(res.errMessage);
             }
