@@ -48,6 +48,9 @@ class ModalMovie extends Component {
     };
 
     checkValidInput = () => {
+        const trim = (value) => {
+            return value.replace(/^\s+|\s+$/g, "");
+        };
         let isValid = true;
         let arrInput = [
             "title",
@@ -64,7 +67,11 @@ class ModalMovie extends Component {
             "trailer",
         ];
         for (let i = 0; i < arrInput.length; i++) {
-            if (!this.state[arrInput[i]]) {
+            console.log(trim(this.state[arrInput[i]]) === "");
+            if (
+                !this.state[arrInput[i]] &&
+                trim(this.state[arrInput[i]]) === ""
+            ) {
                 isValid = false;
                 alert(`Missing parametor: ${arrInput[i]}`);
                 break;
@@ -113,8 +120,10 @@ class ModalMovie extends Component {
     };
 
     handleAddNewMovie = () => {
-        this.checkValidInput();
-        this.props.handleCreateNewMovieService(this.state);
+        const valid = this.checkValidInput();
+        if (valid) {
+            this.props.handleCreateNewMovieService(this.state);
+        }
         if (this.props.isOpen === false) {
             this.setState({
                 poster: "",
@@ -267,6 +276,22 @@ class ModalMovie extends Component {
                                     />
                                     <label className="form-label">
                                         Running Time
+                                    </label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        placeholder=" "
+                                        className="form-input"
+                                        value={this.state.trailer}
+                                        type="text"
+                                        onChange={(e) =>
+                                            this.setState({
+                                                trailer: e.target.value,
+                                            })
+                                        }
+                                    />
+                                    <label className="form-label">
+                                        Trailer
                                     </label>
                                 </div>
                                 <div

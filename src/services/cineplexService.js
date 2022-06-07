@@ -10,6 +10,9 @@ const cineplexService = {
     updateCineplexById: (data) => {
         return axios.put("/api/update-cineplex", data);
     },
+    getCineplexById: (id) => {
+        return axios.get(`/api/get-cineplex-by-id?id=${id}`);
+    },
 };
 
 export default cineplexService;

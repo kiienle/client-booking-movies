@@ -1,8 +1,12 @@
-@import "../../../styles/common.scss";
+@import "../../styles/common.scss";
 
 .movie-list{
     .swiper-slide{
         width: 15%;
+
+        @include pc {
+            width: 20%;
+        }
 
         @include tablet {
             width: 30%;

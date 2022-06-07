@@ -1,4 +1,4 @@
-@import "../../../styles/common.scss";
+@import "../../styles/common.scss";
 
 .movie-card {
     position: relative;
@@ -6,13 +6,15 @@
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 160%;
-    border-radius: $border-radius;
+    // border-radius: 30px;
     margin-bottom: 1rem;
+    // z-index: -1;
 
-    .btn {
+    .movie-btn {
         position: absolute;
         top: 50%;
         left: 50%;
+        font-size: 14px;
         transform: translate(-50%, -50%) scale(0);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -27,16 +29,21 @@
         background-color: $black;
         opacity: 0;
         transition: opacity 0.3s ease;
-        border-radius: $border-radius;
+        // border-radius: 30px;
     }
 
     @media (hover: hover) and (pointer: fine) {
         &:hover::before {
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
-        &:hover .btn {
+        &:hover .movie-btn {
             transform: translate(-50%, -50%) scale(1);
         }
     }
+}
+
+.movie-title {
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
 }

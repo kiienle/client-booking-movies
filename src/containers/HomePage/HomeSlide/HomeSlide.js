@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import * as actions from "../../../store/actions";
 import moment from "moment";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import SwiperCore, { Autoplay } from "swiper";
 
 import "./HomeSlide.scss";
+import Button, { OutlineButton } from "../../Button/Button";
 
 class HomeSlide extends Component {
     constructor(props) {
@@ -37,6 +39,8 @@ class HomeSlide extends Component {
         SwiperCore.use([Autoplay]);
         const { moviesByState } = this.state;
         console.log(moviesByState);
+        const { history } = this.props;
+
         return (
             <div className="home-slide">
                 <Swiper
@@ -46,21 +50,21 @@ class HomeSlide extends Component {
                     slidesPerView={1}
                     autoplay={{ delay: 6000 }}
                 >
-                    {moviesByState &&
-                        moviesByState.length &&
-                        moviesByState.map((item, i) => (
-                            <SwiperSlide key={i}>
-                                {({ isActive }) => (
-                                    <HomeSlideItem
-                                        item={item}
-                                        className={`${
-                                            isActive ? "active" : ""
-                                        }`}
-                                    />
-                                )}
-                            </SwiperSlide>
-                        ))}
+                    {moviesByState.map((item, i) => (
+                        <SwiperSlide key={i}>
+                            {({ isActive }) => (
+                                <HomeSlideItem
+                                    history={history}
+                                    item={item}
+                                    className={`${isActive ? "active" : ""}`}
+                                />
+                            )}
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
+                {moviesByState.map((item, i) => (
+                    <TrailerModal key={i} item={item} />
+                ))}
             </div>
         );
     }
@@ -71,7 +75,7 @@ class HomeSlideItem extends Component {
         super(props);
     }
     render() {
-        const { item, className } = this.props;
+        const { item, className, history } = this.props;
         let backgroundBase64;
         let posterBase64;
         let releaseDate;
@@ -84,34 +88,54 @@ class HomeSlideItem extends Component {
                 .unix(item.release_date / 1000)
                 .format("DD-MM-YYYY");
         }
+
         return (
             <div
                 className={`home-slide__item ${className}`}
                 style={{ backgroundImage: `url(${backgroundBase64})` }}
             >
-                <div className="home-slide__item__content home-container">
-                    <div className="home-slide__item__content__info">
-                        <p className="title">{item.title}</p>
-                        <div className="overview">{item.description}</div>
-                        <div className="release-date">{releaseDate}</div>
-                        <div className="btns">
-                            {/* <Button
-                                onClick={() =>
-                                    hisrory.push("/movie/" + item.id)
-                                }
-                            >
-                                Watch now
-                            </Button> */}
-                            {/* <OutlineButton onClick={setModalActive}>
-                                Watch trailer
-                            </OutlineButton> */}
-                        </div>
-                    </div>
+                <div className="home-slide__item__content movie-container">
                     <div className="home-slide__item__content__poster">
                         <img src={posterBase64} alt="" />
                     </div>
+                    <div className="home-slide__item__content__info">
+                        <p className="title">{item.title}</p>
+                        <div className="state">{item.stateData.valueEn}</div>
+                        <div className="release-date">{releaseDate}</div>
+                        <div className="btns">
+                            <Button
+                                onClick={() =>
+                                    history.push("/movie/" + item.id)
+                                }
+                            >
+                                Booking now
+                            </Button>
+                            <OutlineButton>Watch trailer</OutlineButton>
+                        </div>
+                    </div>
                 </div>
             </div>
+        );
+    }
+}
+
+class TrailerModal extends Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <div></div>
+            // <Modal active={false} id={`modal_${item.id}`}>
+            //     <ModalBody onClose={onClose}>
+            //         <iframe
+            //             ref={iframeRef}
+            //             width="100%"
+            //             height="500px"
+            //             title="trailer"
+            //         ></iframe>
+            //     </ModalBody>
+            // </Modal>
         );
     }
 }
@@ -129,4 +153,6 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeSlide);
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(HomeSlide)
+);

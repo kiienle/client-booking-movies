@@ -68,7 +68,7 @@ const columns = [
             return (
                 <div>
                     <button
-                        className="btn btn-danger mx-2"
+                        className="btn btn-danger"
                         onClick={() => this.handleDeleteUser()}
                     >
                         <i className="fas fa-trash-alt"></i>

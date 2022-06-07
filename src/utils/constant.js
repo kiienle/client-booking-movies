@@ -1,8 +1,10 @@
 export const path = {
-    HOME: "/",
+    HOME: "/home",
     LOGIN: "/login",
     LOG_OUT: "/logout",
     SYSTEM: "/system",
+    CLIENT: "/",
+    MOVIE: "/movie",
 };
 
 export const LANGUAGES = {

@@ -24,7 +24,7 @@ const columns = [
     },
     {
         name: "Cineplex",
-        selector: (row) => row.Cinema.Cineplex.name,
+        selector: (row) => row.Cineplex.name,
         // width: "120px",
     },
     {

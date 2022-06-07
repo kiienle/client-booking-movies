@@ -39,12 +39,14 @@ $box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 $header-height: 8rem;
 $header-shrink-height: 5rem;
-$border-radius: 30px;
+// $border-radius: 30px;
 $mobile-width: 630px;
 
 $tablet-width: 1024px;
 
-$font-family: "Montserrat", sans-serif;
+$pc-width: 1440px;
+
+$font-family: "Oswald", sans-serif;
 
 //date picker
 $date-picker-bg: $common-white;

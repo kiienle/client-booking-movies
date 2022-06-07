@@ -6,6 +6,7 @@
     margin: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    overflow: visible;
 }
 
 html{
@@ -61,17 +62,19 @@ iframe {
 }
 
 .main-container {
+    height: 100%;
     position: relative;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
     line-height: 1.5;
     box-sizing: border-box;
-    background-color: $body-bg;
+    // background-color: #fff !important;
     
 }
 
-.home-container{
-    max-width: 1660px;
+.movie-container{
+    max-width: 1296px;
     margin: auto;
+    padding: 0 14px;
 }
 
 .mb-3{
@@ -80,6 +83,10 @@ iframe {
 
 .mb-2{
     margin-bottom: 2rem;
+}
+
+.mt-8 {
+    margin-bottom: 8rem;
 }
 
 .section{

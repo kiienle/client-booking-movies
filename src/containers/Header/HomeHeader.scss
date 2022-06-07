@@ -41,12 +41,11 @@
 
 .header{
     height: $header-height;
-    position: fixed;
+    // position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 99;
-    background-color: transparent !important;
+    // z-index: 99;
     transition: height .3s ease, background-color .3s ease;
 
     &.shrink{

@@ -16,6 +16,10 @@ const movieService = {
         console.log(state);
         return axios.get(`/api/get-movie-by-state?state=${state}`);
     },
+    getMoviesById: (id) => {
+        console.log(id);
+        return axios.get(`/api/get-movie-by-id?id=${id}`);
+    },
     // getMoviesList: (type, params) => {
     //     const url = "movie/" + movieType[type];
     //     return axiosClient.get(url, params);

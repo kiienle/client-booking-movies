@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { connect } from "react-redux";
-import * as actions from "../../../store/actions";
+import * as actions from "../../store/actions";
 import MovieCard from "./MovieCard";
 
 import "./MovieList.scss";
@@ -40,13 +40,11 @@ class MovieList extends Component {
                     spaceBetween={10}
                     slidesPerView={"auto"}
                 >
-                    {moviesByState &&
-                        moviesByState.length > 0 &&
-                        moviesByState.map((item, i) => (
-                            <SwiperSlide key={i} className="swiper-slide">
-                                <MovieCard item={item} />
-                            </SwiperSlide>
-                        ))}
+                    {moviesByState.map((item, i) => (
+                        <SwiperSlide key={i} className="swiper-slide">
+                            <MovieCard item={item} />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
         );

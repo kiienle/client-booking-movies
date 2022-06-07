@@ -16,25 +16,32 @@ class System extends Component {
         const { systemMenuPath } = this.props;
         return (
             <div className="system-container">
-                {this.props.isLoggedIn && <AdminHeader />}
-                {this.props.isLoggedIn && <SideBar />}
+                <div className="system-content">
+                    {this.props.isLoggedIn && <AdminHeader />}
+                    {this.props.isLoggedIn && <SideBar />}
 
-                <div className="system-list">
                     <Switch>
                         <Route
+                            exact
                             path="/system/user-manage"
                             component={UserManage}
                         />
                         <Route
+                            exact
                             path="/system/movie-manage"
                             component={MovieManage}
                         />
                         <Route
+                            exact
                             path="/system/showtimes-manage"
                             component={ShowtimeManage}
                         />
-                        <Route path="/system/cineplex" component={Cineplex} />
-                        <Route path="/system/cinema" component={Cinema} />
+                        <Route
+                            exact
+                            path="/system/cineplex"
+                            component={Cineplex}
+                        />
+                        <Route exact path="/system/cinema" component={Cinema} />
                         <Route
                             component={() => {
                                 return <Redirect to={systemMenuPath} />;

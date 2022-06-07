@@ -14,12 +14,16 @@
         position: relative;
         font-size: 1.5rem;
 
+        @include pc {
+            font-size: 1.5rem;
+        }
+
         @include tablet {
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
 
         @include mobile {
-            font-size: 1.5rem;
+            font-size: 2rem;
         }
 
         &::after{
@@ -47,10 +51,11 @@
         height: 5rem;
         width: 100%;
         background-color: $body-bg;
-        padding: 0 2rem;
+        padding: 0 3rem;
         box-shadow: $box-shadow;
+        z-index: 999;
 
-        @include flex(center, space-between);
+        @include flex(center, space-around);
         & > * ~ * {
             margin-left: 0;
         }

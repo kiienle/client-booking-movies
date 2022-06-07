@@ -10,12 +10,14 @@ import {
     userIsNotAuthenticated,
 } from "../hoc/authentication";
 import { path } from "../utils";
+import CustomScrollbars from "../components/CustomScrollbars";
 
 import Home from "../routes/Home";
 import Login from "../routes/Login";
 import System from "../routes/System";
-import HomePage from "./HomePage/HomePage";
-import CustomScrollbars from "../components/CustomScrollbars";
+import Client from "../routes/Client";
+// import HomePage from "./HomePage/HomePage";
+import MovieGrid from "./Movie/MovieGrid";
 
 import "swiper/swiper.min.css";
 import "./App.scss";
@@ -52,7 +54,7 @@ class App extends Component {
                                     <Route
                                         path={path.HOME}
                                         exact
-                                        component={Home}
+                                        component={userIsAuthenticated(Home)}
                                     />
                                     <Route
                                         path={path.LOGIN}
@@ -65,11 +67,15 @@ class App extends Component {
                                         component={userIsAuthenticated(System)}
                                     />
                                     <Route
-                                        path={path.HOMEPAGE}
+                                        path={path.CLIENT}
+                                        component={Client}
+                                    />
+                                    {/* <Route
+                                        path={path.HOME}
                                         component={userIsAuthenticated(
                                             HomePage
                                         )}
-                                    />
+                                    /> */}
                                 </Switch>
                             </CustomScrollbars>
                         </div>

@@ -105,16 +105,16 @@ class CustomScrollbars extends Component {
                         ? this.renderNone
                         : this.renderTrackVertical
                 }
-                renderThumbHorizontal={
-                    disableHorizontalScroll
-                        ? this.renderNone
-                        : this.renderThumbHorizontal
-                }
-                renderThumbVertical={
-                    disableVerticalScroll
-                        ? this.renderNone
-                        : this.renderThumbVertical
-                }
+                // renderThumbHorizontal={
+                //     disableHorizontalScroll
+                //         ? this.renderNone
+                //         : this.renderThumbHorizontal
+                // }
+                // renderThumbVertical={
+                //     disableVerticalScroll
+                //         ? this.renderNone
+                //         : this.renderThumbVertical
+                // }
             >
                 {children}
             </Scrollbars>

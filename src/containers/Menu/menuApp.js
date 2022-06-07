@@ -75,21 +75,21 @@ export const homeMenu = [
     {
         index: 1,
         name: "menu.home",
-        link: "/home",
+        link: "/",
     },
     {
         index: 2,
         name: "menu.movie.movie",
-        link: "/home/movie",
+        link: "/movie",
     },
     {
         index: 3,
         name: "menu.cinema.cineplex",
-        link: "/home/cineplex",
+        link: "/cineplex",
     },
     {
         index: 4,
         name: "menu.movie.show-time",
-        link: "/home/show-time",
+        link: "/show-time",
     },
 ];

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 import "./MovieCard.scss";
 
@@ -19,11 +20,9 @@ class MovieCard extends Component {
                     className="movie-card"
                     style={{ backgroundImage: `url(${posterBase64})` }}
                 >
-                    {/* <Button>
-                        <i className="bx bx-play"></i>
-                    </Button> */}
+                    <Button>Book Now</Button>
                 </div>
-                <p>{item.title || item.name}</p>
+                <p className="movie-title">{item.title || item.name}</p>
             </Link>
         );
     }

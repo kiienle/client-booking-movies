@@ -8,39 +8,19 @@ import "./SystemNavigator.scss";
 class Menu extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            currentIndex: "",
-        };
-    }
-    handleClickMenu = (index) => {
-        if (index) {
-            this.setState({
-                currentIndex: index,
-            });
-        }
-    };
-    componentDidMount() {
-        this.setState({
-            currentIndex: 1,
-        });
+        this.state = {};
     }
 
     render() {
         const { menus } = this.props;
-        const { currentIndex } = this.state;
+        const active = menus.findIndex(
+            (e) => e.link === this.props.location.pathname
+        );
         return (
             <Fragment>
-                {menus.map((menu) => (
-                    <li
-                        className={
-                            currentIndex === menu.index ? "active menu" : "menu"
-                        }
-                    >
-                        <Link
-                            to={menu.link}
-                            className="menu-link"
-                            onClick={() => this.handleClickMenu(menu.index)}
-                        >
+                {menus.map((menu, i) => (
+                    <li className={i === active ? "active menu" : "menu"}>
+                        <Link to={menu.link} className="menu-link">
                             {menu.icon}
                             <FormattedMessage id={menu.name} />
                         </Link>
